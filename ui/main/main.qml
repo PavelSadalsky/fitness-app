@@ -34,31 +34,13 @@ Window {
             topMargin : 25
             horizontalCenter: parent.horizontalCenter
         }
-        Button{
-            contentItem : Text{
-                text : "Пацан"
-                color : "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                font.pointSize : 22
-                font.bold : true
-            }
+        DefaultButton{
+            btnText: "Пацан"
             Material.background: Material.LightBlue
-            width : 200
-            height : 80
         }
-        Button{
-            contentItem : Text{
-                text : "Пацанка"
-                color : "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                font.pointSize : 22
-                font.bold : true
-            }
+        DefaultButton{
+            btnText: "Пацанка"
             Material.background: Material.Pink
-            width : 200
-            height : 80
         }
     }
 }
