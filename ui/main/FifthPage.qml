@@ -8,7 +8,7 @@ Component {
     Rectangle {
         Label {
             id : infoLabel
-            text : "Какой образ жизни\n вы поддерживаете?"
+            text : "Сколько воды вы\nвыпиваете в день?"
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize : 48
             color : "#3d3c3d"
@@ -21,9 +21,8 @@ Component {
             }
         }
         DefaultButton{
-            id : sedentaryLifestyle
-            onClicked : stackView.push(fifthPage)
-            btnText : "Сидячий образ жизни"
+            id : beer
+            btnText : "Воду не пью, только пиво"
             Material.background: Material.Grey
             width : 500
             anchors{
@@ -33,49 +32,45 @@ Component {
             }
         }
         DefaultButton{
-            id : littleActivity
-            onClicked : stackView.push(fifthPage)
-            btnText : "Небольшая активность"
+            id : twoCups
+            btnText : "Меньше двух стаканов воды"
             Material.background: Material.Grey
             width : 500
             anchors{
-                top : sedentaryLifestyle.bottom
+                top : beer.bottom
                 horizontalCenter: parent.horizontalCenter
                 topMargin : 10
             }
         }
         DefaultButton{
-            id : middleActivity
-            onClicked : stackView.push(fifthPage)
-            btnText : "Умеренная активность"
+            id : sixCups
+            btnText : "2-6 стаканов воды"
             Material.background: Material.Grey
             width : 500
             anchors{
-                top : littleActivity.bottom
+                top : twoCups.bottom
                 horizontalCenter: parent.horizontalCenter
                 topMargin : 10
             }
         }
         DefaultButton{
-            id : highActivity
-            onClicked : stackView.push(fifthPage)
-            btnText : "Высокая активность"
+            id : sevenCups
+            btnText : "7-10 стаканов воды"
             Material.background: Material.Grey
             width : 500
             anchors{
-                top : middleActivity.bottom
+                top : sixCups.bottom
                 horizontalCenter: parent.horizontalCenter
                 topMargin : 10
             }
         }
         DefaultButton{
-            id : veryHighActivity
-            onClicked : stackView.push(fifthPage)
-            btnText : "Очень высокая активность"
+            id : tenCups
+            btnText : "Больше 10 стаканов"
             Material.background: Material.Grey
             width : 500
             anchors{
-                top : highActivity.bottom
+                top : sevenCups.bottom
                 horizontalCenter: parent.horizontalCenter
                 topMargin : 10
             }

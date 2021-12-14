@@ -19,6 +19,7 @@ Window {
     SecondPage { id : secondPage }
     ThirdPage { id : thirdPage}
     FourthPage { id : fourthPage}
+    FifthPage { id : fifthPage}
     StackView {
         id : stackView
         initialItem : firstPage
