@@ -5,17 +5,15 @@ import Qt5Compat.GraphicalEffects
 import QtQuick.Controls.Material
 
 DefaultButton{
-    onClicked : { 
-        stackView.pop(null)
-    }
-    btnText : "Начало"
+    onClicked : stackView.pop()
+    btnText : "Назад"
     textSize : 12
-    Material.background: Material.LightGreen
+    Material.background: "#53c07f"
     width : 100
     height : 40
     anchors{
         bottom : parent.bottom
-        left : parent.left
+        right : parent.right
         margins : 20
     }
 }
