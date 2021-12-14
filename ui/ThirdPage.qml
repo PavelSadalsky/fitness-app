@@ -8,7 +8,7 @@ Component {
     Rectangle {
         Label {
             id : infoLabel
-            text : "Введите ваши параметры\nна сегодняшний день?"
+            text : "Введите ваши параметры\nна сегодняшний день"
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize : 48
             color : "#3d3c3d"
