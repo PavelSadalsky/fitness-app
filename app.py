@@ -5,6 +5,8 @@ from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtCore import QUrl
 from PySide6 import __file__ as pyside_file
 
+from core import Person
+
 if __name__ == '__main__':
     dirname = os.path.dirname(pyside_file)
     plugin_path = os.path.join(dirname, 'plugins', 'platforms')
@@ -13,6 +15,10 @@ if __name__ == '__main__':
     os.environ['QML2_IMPORT_PATH'] = os.path.join(dirname, 'qml')
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
+
+    service = Person()
+    engine.rootContext().setContextProperty("service", service)
+
     engine.load(QUrl("ui/main.qml"))
 
     if not engine.rootObjects():
