@@ -1,4 +1,5 @@
 from PySide6.QtCore import QObject, Slot
+from Chart import Chart
 
 
 class Person(QObject):
@@ -65,11 +66,24 @@ class Person(QObject):
         else:
             return "Ожирение 3 степени (морбидное)"
 
-    @Slot(result=float)
-    def get_calorie_allowance(self):
+    def __calorie_allowance(self, weight):
         _var = None
         if self.__sex:
-            _var = 655 + (9.6 * self.__weight) + (1.8 * self.__height) - (4.7 * self.__age)
+            _var = 655 + (9.6 * weight) + (1.8 * self.__height) - (4.7 * self.__age)
         else:
-            _var = 66.5 + (13.7 * self.__weight) + (5 * self.__height) - (6.9 * self.__age)
-        return _var * self.__coefficients[self.__choose]
+            _var = 66.5 + (13.7 * weight) + (5 * self.__height) - (6.9 * self.__age)
+        _var *= self.__coefficients[self.__choose]
+        return _var
+
+    @Slot(result=float)
+    def get_calorie_allowance(self):
+        return self.__calorie_allowance(self.__weight)
+
+    @Slot()
+    def chart(self):
+        weight = self.__weight
+        weight_list = [weight]
+        while weight > self.__desired_weight:
+            weight -= (self.__calorie_allowance(weight) * 0.15 * 30) / 7700
+            weight_list.append(weight)
+        Chart.generate([i for i in range(0, len(weight_list))], weight_list)
