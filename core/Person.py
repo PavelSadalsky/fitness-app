@@ -1,8 +1,13 @@
-class Person:
+from PySide6.QtCore import QObject, Slot
+
+
+class Person(QObject):
     __age: int
     __height: int
     __weight: int
     __desired_weight: int
+    __sex: bool
+    __choose: int
     __coefficients = {
         1: 1.2,
         2: 1.375,
@@ -11,17 +16,60 @@ class Person:
         5: 1.9
     }
 
-    def __init__(self, sex):
+    def __init__(self):
+        QObject.__init__(self)
+
+    @Slot(bool)
+    def set_sex(self, sex):
         self.__sex: bool = sex
 
+    @Slot(int)
     def set_age(self, age):
         self.__age = age
 
+    @Slot(int)
     def set_height(self, height):
         self.__height = height
 
+    @Slot(int)
     def set_weight(self, weight):
         self.__weight = weight
 
+    @Slot(int)
     def set_desired_weight(self, desired_weight):
         self.__desired_weight = desired_weight
+
+    @Slot(int)
+    def set_choose(self, choose):
+        self.__choose = choose
+
+    @Slot(result=float)
+    def get_bmi(self):
+        return self.__weight / ((self.__height / 100) ** 2)
+
+    @Slot(result=str)
+    def bmi_info(self):
+        _bmi = self.get_bmi()
+        if _bmi < 16:
+            return "Выраженный дефицит массы тела, истощение"
+        elif 18.5 > _bmi >= 16:
+            return "Недостаточная масса тела (дефицит)"
+        elif 18.5 >= _bmi < 24.9:
+            return "Норма"
+        elif 25 >= _bmi < 29.9:
+            return "Лишний вес, избыточная масса тела (предожирение)"
+        elif 30 >= _bmi < 34.9:
+            return "Ожирение первой степени"
+        elif 35 >= _bmi <= 39.9:
+            return "Ожирение второй степени"
+        else:
+            return "Ожирение 3 степени (морбидное)"
+
+    @Slot(result=float)
+    def get_calorie_allowance(self):
+        _var = None
+        if self.__sex:
+            _var = 655 + (9.6 * self.__weight) + (1.8 * self.__height) - (4.7 * self.__age)
+        else:
+            _var = 66.5 + (13.7 * self.__weight) + (5 * self.__height) - (6.9 * self.__age)
+        return _var * self.__coefficients[self.__choose]
