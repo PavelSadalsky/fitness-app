@@ -20,6 +20,7 @@ if __name__ == '__main__':
     engine.rootContext().setContextProperty("service", service)
 
     engine.load(QUrl("ui/main.qml"))
+    engine.rootObjects()
 
     if not engine.rootObjects():
         sys.exit(-1)

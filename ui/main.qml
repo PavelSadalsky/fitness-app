@@ -25,7 +25,7 @@ Window {
     FinalPage { id : finalPage}
     StackView {
         id : stackView
-        initialItem : finalPage//firstPage
+        initialItem : firstPage
         anchors.fill : parent
     }
 }

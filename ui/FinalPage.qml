@@ -6,6 +6,7 @@ import QtQuick.Controls.Material
 
 Component {
     Rectangle {
+        
         Label {
             id : infoLabel
             text : "Результаты анализа данных"
@@ -34,7 +35,7 @@ Component {
         }
         Label {
             id : primer1Label
-            text : "2000 (ккал)"
+            text : service.get_calorie_allowance() + " (ккал)"
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize : 20
             color : "#3d3c3d"
@@ -69,7 +70,7 @@ Component {
         }
         Label {
             id : primer2Label
-            text : "2.4 (литра)"
+            text : service.get_water() + " (литра)"
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize : 20
             color : "#3d3c3d"
@@ -106,7 +107,7 @@ Component {
         }
         Label {
             id : primer3Label
-            text : "180 (см)"
+            text : service.get_height() + " (см)"
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize : 20
             color : "#3d3c3d"
@@ -143,7 +144,7 @@ Component {
         }
         Label {
             id : primer4Label
-            text : "80 (кг)"
+            text : service.get_weight() + " (кг)"
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize : 20
             color : "#3d3c3d"
@@ -180,7 +181,7 @@ Component {
         }
         Label {
             id : primer5Label
-            text : "20 (лет)"
+            text : service.get_age() + " (лет)"
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize : 20
             color : "#3d3c3d"
@@ -216,7 +217,7 @@ Component {
     }
     Image{
         id : chart
-        source : "../core/chart.png"
+        source : "../chart.png"
         width : 450
         height : 300
         anchors{
@@ -242,7 +243,7 @@ Component {
         }
         Label {
             id : primer6Label
-            text : "Текущий ИМС\n21.6"
+            text : "Текущий ИМС\n" + service.get_bmi()
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize : 24
             color : "#3d3c3d"
@@ -256,7 +257,7 @@ Component {
         }
         Label {
             id : primer7Label
-            text : "Лишний вес, избыточная масса тела (предожирение)"
+            text : service.bmi_info()
             font.pointSize : 16
             anchors{
                 bottom : sixthBlock.bottom

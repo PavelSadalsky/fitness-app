@@ -26,7 +26,10 @@ Component {
         }
         DefaultButton{
             btnText : "Продолжить"
-            onClicked : stackView.push(thirdPage)
+            onClicked : {
+                stackView.push(thirdPage)
+                service.set_desired_weight(weightField.text)
+            }
             Material.background: Material.Cyan
             anchors{
                 top : weightField.bottom

@@ -91,7 +91,12 @@ Component {
         }
         DefaultButton{
             btnText : "Продолжить"
-            onClicked : stackView.push(fourthPage)
+            onClicked : {
+                stackView.push(fourthPage)
+                service.set_weight(weightField.text)
+                service.set_age(ageField.text)
+                service.set_height(heightField.text)
+            }
             Material.background: Material.Cyan
             anchors{
                 top : weightField.bottom

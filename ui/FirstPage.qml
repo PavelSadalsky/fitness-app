@@ -29,12 +29,18 @@ Component {
             DefaultButton{
                 btnText: "Пацан"
                 Material.background: Material.LightBlue
-                onClicked : stackView.push(secondPage)
+                onClicked : {
+                    service.set_sex(true)
+                    stackView.push(secondPage)
+                } 
             }
             DefaultButton{
                 btnText: "Пацанка"
                 Material.background: Material.Pink
-                onClicked : stackView.push(secondPage)
+                onClicked : {
+                    service.set_sex(false)
+                    stackView.push(secondPage)
+                }
             }
         }
     }

@@ -1,5 +1,5 @@
 from PySide6.QtCore import QObject, Slot
-from Chart import Chart
+from .Chart import Chart
 
 
 class Person(QObject):
@@ -8,7 +8,7 @@ class Person(QObject):
     __weight: int
     __desired_weight: int
     __sex: bool
-    __choose: int
+    __choose: int = 1
     __water_glasses: int
     __coefficients = {
         1: 1.2,
@@ -48,14 +48,27 @@ class Person(QObject):
     @Slot(str)
     def set_choose(self, choose):
         self.__choose = int(choose)
+        self.chart()
 
     @Slot(result=float)
     def get_bmi(self):
-        return self.__weight / ((self.__height / 100) ** 2)
+        return round(self.__weight / ((self.__height / 100) ** 2), 2)
 
     @Slot(result=float)
     def get_water(self):
         return self.__weight * 40 / 1000
+
+    @Slot(result=int)
+    def get_age(self):
+        return self.__age
+
+    @Slot(result=int)
+    def get_height(self):
+        return self.__height
+
+    @Slot(result=int)
+    def get_weight(self):
+        return self.__weight
 
     @Slot(result=str)
     def bmi_info(self):
@@ -86,9 +99,9 @@ class Person(QObject):
 
     @Slot(result=float)
     def get_calorie_allowance(self):
-        return self.__calorie_allowance(self.__weight)
+        return round(self.__calorie_allowance(self.__weight), 0)
 
-    @Slot()
+
     def chart(self):
         weight = self.__weight
         weight_list = [weight]

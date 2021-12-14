@@ -22,7 +22,10 @@ Component {
         }
         DefaultButton{
             id : beer
-            onClicked : stackView.push(finalPage)
+            onClicked : {
+                stackView.push(finalPage)
+                //service.set_water_glasses("1")
+            }
             btnText : "Воду не пью, только пиво"
             Material.background: Material.Grey
             width : 500
@@ -34,7 +37,10 @@ Component {
         }
         DefaultButton{
             id : twoCups
-            onClicked : stackView.push(finalPage)
+            onClicked : {
+                stackView.push(finalPage)
+                //service.set_water_glasses("2")
+            }
             btnText : "Меньше двух стаканов воды"
             Material.background: Material.Grey
             width : 500
@@ -46,7 +52,10 @@ Component {
         }
         DefaultButton{
             id : sixCups
-            onClicked : stackView.push(finalPage)
+            onClicked : {
+                stackView.push(finalPage)
+                //service.set_water_glasses("4")
+            }
             btnText : "2-6 стаканов воды"
             Material.background: Material.Grey
             width : 500
@@ -58,7 +67,10 @@ Component {
         }
         DefaultButton{
             id : sevenCups
-            onClicked : stackView.push(finalPage)
+            onClicked : {
+                stackView.push(finalPage)
+                //service.set_water_glasses("7")
+            }
             btnText : "7-10 стаканов воды"
             Material.background: Material.Grey
             width : 500
@@ -70,7 +82,10 @@ Component {
         }
         DefaultButton{
             id : tenCups
-            onClicked : stackView.push(finalPage)
+            onClicked : {
+                stackView.push(finalPage)
+                //service.set_water_glasses("10")
+            }
             btnText : "Больше 10 стаканов"
             Material.background: Material.Grey
             width : 500

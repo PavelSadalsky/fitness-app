@@ -22,7 +22,10 @@ Component {
         }
         DefaultButton{
             id : sedentaryLifestyle
-            onClicked : stackView.push(fifthPage)
+            onClicked : {
+                stackView.push(fifthPage)
+                service.set_choose("1")
+            }
             btnText : "Сидячий образ жизни"
             Material.background: Material.Grey
             width : 500
@@ -34,7 +37,10 @@ Component {
         }
         DefaultButton{
             id : littleActivity
-            onClicked : stackView.push(fifthPage)
+            onClicked : {
+                stackView.push(fifthPage)
+                service.set_choose("2")
+            }
             btnText : "Небольшая активность"
             Material.background: Material.Grey
             width : 500
@@ -46,7 +52,10 @@ Component {
         }
         DefaultButton{
             id : middleActivity
-            onClicked : stackView.push(fifthPage)
+            onClicked : {
+                stackView.push(fifthPage)
+                service.set_choose("3")
+            }
             btnText : "Умеренная активность"
             Material.background: Material.Grey
             width : 500
@@ -58,7 +67,10 @@ Component {
         }
         DefaultButton{
             id : highActivity
-            onClicked : stackView.push(fifthPage)
+            onClicked : {
+                stackView.push(fifthPage)
+                service.set_choose("4")
+            }
             btnText : "Высокая активность"
             Material.background: Material.Grey
             width : 500
@@ -70,7 +82,10 @@ Component {
         }
         DefaultButton{
             id : veryHighActivity
-            onClicked : stackView.push(fifthPage)
+            onClicked : {
+                stackView.push(fifthPage)
+                service.set_choose("5")
+            }
             btnText : "Очень высокая активность"
             Material.background: Material.Grey
             width : 500
