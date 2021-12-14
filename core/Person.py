@@ -9,6 +9,7 @@ class Person(QObject):
     __desired_weight: int
     __sex: bool
     __choose: int
+    __water_glasses: int
     __coefficients = {
         1: 1.2,
         2: 1.375,
@@ -24,29 +25,37 @@ class Person(QObject):
     def set_sex(self, sex):
         self.__sex: bool = sex
 
-    @Slot(int)
+    @Slot(str)
     def set_age(self, age):
-        self.__age = age
+        self.__age = int(age)
 
-    @Slot(int)
+    @Slot(str)
     def set_height(self, height):
-        self.__height = height
+        self.__height = int(height)
 
-    @Slot(int)
+    @Slot(str)
+    def set_water_glasses(self, water_glasses):
+        self.__water_glasses = int(water_glasses)
+
+    @Slot(str)
     def set_weight(self, weight):
-        self.__weight = weight
+        self.__weight = int(weight)
 
-    @Slot(int)
+    @Slot(str)
     def set_desired_weight(self, desired_weight):
-        self.__desired_weight = desired_weight
+        self.__desired_weight = int(desired_weight)
 
-    @Slot(int)
+    @Slot(str)
     def set_choose(self, choose):
-        self.__choose = choose
+        self.__choose = int(choose)
 
     @Slot(result=float)
     def get_bmi(self):
         return self.__weight / ((self.__height / 100) ** 2)
+
+    @Slot(result=float)
+    def get_water(self):
+        return self.__weight * 40 / 1000
 
     @Slot(result=str)
     def bmi_info(self):
