@@ -10,8 +10,10 @@ Window {
     width: 800; height: 800
     visible: true
     color: "white"
-    minimumWidth : 600
-    minimumHeight : 600
+    minimumWidth : 800
+    minimumHeight : 800
+    maximumWidth : 800
+    maximumHeight : 800
     Material.theme : Material.Light
     Material.accent : Material.LightGreen
 
@@ -20,9 +22,10 @@ Window {
     ThirdPage { id : thirdPage}
     FourthPage { id : fourthPage}
     FifthPage { id : fifthPage}
+    FinalPage { id : finalPage}
     StackView {
         id : stackView
-        initialItem : firstPage
+        initialItem : finalPage//firstPage
         anchors.fill : parent
     }
 }

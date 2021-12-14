@@ -13,7 +13,7 @@ if __name__ == '__main__':
     os.environ['QML2_IMPORT_PATH'] = os.path.join(dirname, 'qml')
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
-    engine.load(QUrl("ui/main/main.qml"))
+    engine.load(QUrl("ui/main.qml"))
 
     if not engine.rootObjects():
         sys.exit(-1)

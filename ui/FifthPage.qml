@@ -22,6 +22,7 @@ Component {
         }
         DefaultButton{
             id : beer
+            onClicked : stackView.push(finalPage)
             btnText : "Воду не пью, только пиво"
             Material.background: Material.Grey
             width : 500
@@ -33,6 +34,7 @@ Component {
         }
         DefaultButton{
             id : twoCups
+            onClicked : stackView.push(finalPage)
             btnText : "Меньше двух стаканов воды"
             Material.background: Material.Grey
             width : 500
@@ -44,6 +46,7 @@ Component {
         }
         DefaultButton{
             id : sixCups
+            onClicked : stackView.push(finalPage)
             btnText : "2-6 стаканов воды"
             Material.background: Material.Grey
             width : 500
@@ -55,6 +58,7 @@ Component {
         }
         DefaultButton{
             id : sevenCups
+            onClicked : stackView.push(finalPage)
             btnText : "7-10 стаканов воды"
             Material.background: Material.Grey
             width : 500
@@ -66,6 +70,7 @@ Component {
         }
         DefaultButton{
             id : tenCups
+            onClicked : stackView.push(finalPage)
             btnText : "Больше 10 стаканов"
             Material.background: Material.Grey
             width : 500
